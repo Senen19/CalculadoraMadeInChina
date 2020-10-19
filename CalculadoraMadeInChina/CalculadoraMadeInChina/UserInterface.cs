@@ -19,6 +19,20 @@ namespace CalculadoraMadeInChina
             System.Console.WriteLine("7) Sumatorio de un número");
             System.Console.WriteLine("0) Salir de la aplicación");
         }
+        public static int ReadOption ()
+        { 
+            string option = System.Console.ReadLine();
+            try
+            {
+                int result = System.Convert.ToInt32(option);
+                return result; //si no peta me devolverá return result.
+            }
+            catch (Exception e)
+            {
+                return -1; //Si peta.... me devolverá -1 el error lo manejaremos en el ManageMainMenu   
+            }
+            
+        }
     }
     
 }
