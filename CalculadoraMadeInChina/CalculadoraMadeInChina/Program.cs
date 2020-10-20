@@ -1,8 +1,4 @@
 ﻿using System;
-//MVC --> Model view controller. En view va todo lo que se imprima y vea pantalla.
-//Model es todo aquello que maneja mi aplicación (sumas, restas, sumatorio, etc)
-//Controller es la clase Program -donde esta el main-.
-
 
 namespace CalculadoraMadeInChina
 {
@@ -12,19 +8,19 @@ namespace CalculadoraMadeInChina
     {
             while (true)  //bucle infinito que devuelve un bool (true) - lógica de una aplicación
             {
-                UserInterface.PrintMainMenu();
-                int option = UserInterface.ReadOption();
-                if (option == 0)
+                UserInterface.PrintMainMenu(); //Imprime menú principal
+                int option = UserInterface.ReadOption(); //Almacenamos el valor del usuario, llamada a función de introducir valor
+                if (option == 0) //Si el valor que introduce es 0, como se observa en el MainMenu, sale de la aplicación.
                     break; //sale del bucle while y continua fuera del bucle
-                else if (option == -1) //si da error que imprima lo siguiente
+                else if (option == -1) //cuand el return nos devuelve -1 porque ha habido un error
                 {
-                    System.Console.Clear(); //sirve para limpiar cuando una vez se ha imprimido el menu principal
+                    System.Console.Clear(); //sirve para limpiar lo que hay en pantalla
                     System.Console.WriteLine("Opción no valida");
                 }
-                else if (option < 0 || option > 7)
+                else if (option < 0 || option > 7)  
                 {
-                    System.Console.WriteLine("Opción no valida, pon un número entre el 0 y el 7");
                     System.Console.Clear();
+                    System.Console.WriteLine("Opción no valida, pon un número entre el 0 y el 7");
                 }
             }
     }
