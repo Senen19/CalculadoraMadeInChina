@@ -19,12 +19,12 @@ namespace CalculadoraMadeInChina
             System.Console.WriteLine("7) Sumatorio de un número");
             System.Console.WriteLine("0) Salir de la aplicación");
         }
-        public static int ReadOption ()
+        public static int ReadOption () //función para que usuario introduzca el valor por consola
         { 
-            string option = System.Console.ReadLine();
+            string option = System.Console.ReadLine(); //Introduce valor por consola, se almacenará en option
             try
             {
-                int result = System.Convert.ToInt32(option);
+                int result = System.Convert.ToInt32(option); //Convierte el valor option a un int
                 return result; //si no peta me devolverá return result.
             }
             catch (Exception e)
