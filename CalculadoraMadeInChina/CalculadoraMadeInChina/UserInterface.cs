@@ -6,6 +6,7 @@ namespace CalculadoraMadeInChina
 {
     class UserInterface
     {
+       
         public static void PrintMainMenu () //Imrpime el menú principal
         {
             System.Console.WriteLine("      Calculadora Made in China     ");
@@ -19,6 +20,7 @@ namespace CalculadoraMadeInChina
             System.Console.WriteLine("7) Sumatorio de un número");
             System.Console.WriteLine("0) Salir de la aplicación");
         }
+        
         public static int ReadOption () //función para que usuario introduzca el valor por consola
         { 
             string option = System.Console.ReadLine(); //Introduce valor por consola, se almacenará en option
@@ -32,6 +34,12 @@ namespace CalculadoraMadeInChina
                 return -1; //Si peta.... me devolverá -1 el error lo manejaremos en el ManageMainMenu   
             }
             
+        }
+
+        public static void PrintAddMenu() //void porque solo devuelve el menú
+        {
+            System.Console.WriteLine("      Suma de números     ");
+            System.Console.WriteLine("--------------------------");
         }
     }
     
