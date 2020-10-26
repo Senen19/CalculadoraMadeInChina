@@ -20,9 +20,28 @@ namespace CalculadoraMadeInChina
             System.Console.WriteLine("7) Sumatorio de un número");
             System.Console.WriteLine("0) Salir de la aplicación");
         }
-        
-        public static int ReadOption () //función para que usuario introduzca el valor por consola
-        { 
+
+        public static void PrintAddHeader()
+        {
+            System.Console.WriteLine("Suma de números");
+            System.Console.WriteLine("--------------------------");
+
+        }
+
+        public static void PrintAddSubMenu() //void porque solo devuelve el menú
+        {
+            System.Console.WriteLine("      Suma de números     ");
+            System.Console.WriteLine("--------------------------");
+
+            System.Console.WriteLine("Elige una opción");
+            System.Console.WriteLine("0) Ir al menú princìpal");
+            System.Console.WriteLine("1) Sumar otro número");
+        }
+
+
+
+        public static int ReadOption() //función para que usuario introduzca el valor por consola
+        {
             string option = System.Console.ReadLine(); //Introduce valor por consola, se almacenará en option
             try
             {
@@ -33,14 +52,10 @@ namespace CalculadoraMadeInChina
             {
                 return -1; //Si peta.... me devolverá -1 el error lo manejaremos en el ManageMainMenu   
             }
+        }
             
-        }
-
-        public static void PrintAddMenu() //void porque solo devuelve el menú
-        {
-            System.Console.WriteLine("      Suma de números     ");
-            System.Console.WriteLine("--------------------------");
-        }
+        
+        
     }
     
 }
