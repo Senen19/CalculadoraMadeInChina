@@ -1,26 +1,28 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace CalculadoraMadeInChina
 {
     class Program
     {
-        public static void ManageAddSubMenu(int Accumuled)
+        public static int ManageAddSubMenu(int Accumuled)
         {
-            UserInterface.PrintAddHeader();
-            System.Console.WriteLine("Llevas acumulado " + Accumuled);
-            int number = ManageUtils.ReadInteger("Introduce otro número");
-            Accumuled = Accumuled + number;
-            System.Console.WriteLine("Llevas acumulado " + Accumuled);
-            UserInterface.PrintAddSubMenu();
-            int option = UserInterface.ReadOption();
-            switch (option)
+            while (true)
             {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
+                UserInterface.PrintAddHeader();
+                System.Console.WriteLine("Llevas acumulado " + Accumuled);
+                int number = ManageUtils.ReadInteger("Introduce otro número");
+                Accumuled = Accumuled + number;
+                System.Console.WriteLine("Llevas acumulado " + Accumuled);
+                UserInterface.PrintAddSubMenu();
+                int option = UserInterface.ReadOption();
+                switch (option)
+                {
+                    case 0:
+                        return 0;
+                    case 2:
+                        return 2;
+                }
             }
 
         }
@@ -29,6 +31,7 @@ namespace CalculadoraMadeInChina
             bool finished = false;
             while (finished == false)
             {
+                System.Console.Clear();
                 UserInterface.PrintAddHeader();
                 int number1 = ManageUtils.ReadInteger("Introduce el primer número");
                 int number2 = ManageUtils.ReadInteger("Introduce el segundo número");
@@ -43,10 +46,116 @@ namespace CalculadoraMadeInChina
 
                 else if (option == 2)
                     System.Console.Clear();
+
                 else if (option == 1)
-                    ManageAddSubMenu(result); //el resultado se acumulará y se remitirá a la variable Accumuled en la función que llamamos
+                {
+                    int submenu_option = ManageAddSubMenu(result); //el resultado se acumulará y se remitirá a la variable Accumuled en la función que llamamos
+                    if (submenu_option == 0)
+                        return;
+                }
+            }
+
+        }
+        public static int ManageSubSubMenu(int Accumuled)
+        {
+            while (true)
+            {
+                UserInterface.PrintSubHeader();
+                System.Console.WriteLine("Llevas acumulado: " + Accumuled);
+                int number = ManageUtils.ReadInteger("Introduce otro número ");
+                Accumuled = Accumuled - number;
+                System.Console.WriteLine("Llevas acumulado: " + Accumuled);
+                UserInterface.PrintAddSubMenu();
+                int option = UserInterface.ReadOption();
+                switch (option)
+                {
+                    case 0:
+                        return 0;
+                    case 2:
+                        return 2;
+                }
+            }
+
+        }
+        public static void ManageSubMenu ()
+        {
+            while (true)
+            {
+                System.Console.Clear(); //límpia la pantalla
+                UserInterface.PrintSubHeader(); //imprime la cabecera
+                int number1 = ManageUtils.ReadInteger("Introduce el primer número");
+                int number2 = ManageUtils.ReadInteger("Introduce el segundo número");
+                int result = number1 - number2;
+                System.Console.Write("El resultado es: " + result);
+
+                UserInterface.PrintSubSubMenu();
+                int option = UserInterface.ReadOption();
+                if (option == 0)
+                    break;
+
+                else if (option == 2)
+                    System.Console.Clear();
+
+                else if (option == 1)
+                {
+                    int submenu_option = ManageSubSubMenu(result); //el resultado se acumulará y se remitirá a la variable Accumuled en la función que llamamos
+                    if (submenu_option == 0)
+                        return;
+                }
             }
         }
+        public static int ManageMultSubMenu(int Accumuled)
+        {
+            while (true)
+            {
+                System.Console.Clear();
+                System.Console.WriteLine("Llevas acumulado: " + Accumuled);
+                int number = ManageUtils.ReadInteger("Introduce otro número: ");
+                Accumuled = Accumuled * number;
+                System.Console.WriteLine("Llevas acumulado: " + Accumuled);
+
+                UserInterface.PrintMultSubMenu();
+                int option = UserInterface.ReadOption();
+                switch (option)
+                {
+                    case 0:
+                        return 0;
+                    case 2:
+                        return 2;
+                }
+            }
+
+        }
+        public static void ManageMultMenu()
+        {
+            while (true)
+            {
+                System.Console.Clear();
+                UserInterface.PrintMultHeader();
+                int number1 = ManageUtils.ReadInteger("Escribe el primer número");
+                int number2 = ManageUtils.ReadInteger("Escribe el segundo número");
+                int result = number1 * number2;
+                System.Console.WriteLine("El resultado es: " + result);
+
+                UserInterface.PrintMultSubMenu();
+                int option = UserInterface.ReadOption();
+                if (option == 0)
+                    break;
+
+                else if (option == 2)
+                    System.Console.Clear();
+
+                else if (option == 1) 
+                {
+                    int submenu_option = ManageMultSubMenu(result);
+                    if (submenu_option == 0)
+                        return;
+                }
+
+
+            }
+        }
+
 
             public static void ManageMainMenu()//Función para controlar la interfaz del main menu, en vez de manage podría ser launch ya que en las aplicaciones grandes es lanzar algo
             {
@@ -66,8 +175,10 @@ namespace CalculadoraMadeInChina
                             ManageAddMenu(); //En el caso 1 llamo a la función del controlador de sumas
                             break;
                         case 2:
+                            ManageSubMenu();
                             break;
                         case 3:
+                            ManageMultMenu();
                             break;
                         case 4:
                             break;

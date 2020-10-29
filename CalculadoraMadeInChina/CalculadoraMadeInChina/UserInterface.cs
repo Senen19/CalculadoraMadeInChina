@@ -38,10 +38,44 @@ namespace CalculadoraMadeInChina
             System.Console.WriteLine("1) Sumar otro número");
         }
 
+        public static void PrintSubHeader () //Imprime el título de la resta
+        {
+            System.Console.WriteLine("     Resta de números");
+            System.Console.WriteLine("---------------------------");
+
+        }
+
+        public static void PrintMultHeader()
+        {
+            System.Console.WriteLine("      Multiplicación de números     ");
+            System.Console.WriteLine("--------------------------------------");
+        }
+
+        public static void PrintMultSubMenu()
+        {
+            System.Console.WriteLine("      Multiplicación de números     ");
+            System.Console.WriteLine("--------------------------------------");
+
+            System.Console.WriteLine("Elige una opción");
+            System.Console.WriteLine("0) Ir al menú princìpal");
+            System.Console.WriteLine("1) Sumar otro número");
+        }
+
+        public static void PrintSubSubMenu() //Imprime el submenú después de realizar la resta
+        {
+            System.Console.WriteLine("      \n\n\nResta de números     ");
+            System.Console.WriteLine("--------------------------");
+
+            System.Console.WriteLine("Elige una opción");
+            System.Console.WriteLine("0) Ir al menú princìpal");
+            System.Console.WriteLine("1) Restar otro número");
+
+        }
+
 
 
         public static int ReadOption() //función para que usuario introduzca el valor por consola
-        {
+            {
             string option = System.Console.ReadLine(); //Introduce valor por consola, se almacenará en option
             try
             {
