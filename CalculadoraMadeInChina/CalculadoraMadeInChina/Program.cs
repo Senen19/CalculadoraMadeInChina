@@ -9,6 +9,7 @@ namespace CalculadoraMadeInChina
         {
             while (true)
             {
+<<<<<<< Updated upstream
                 UserInterface.PrintAddHeader();
                 System.Console.WriteLine("Llevas acumulado " + Accumuled);
                 int number = ManageUtils.ReadInteger("Introduce otro número");
@@ -23,6 +24,12 @@ namespace CalculadoraMadeInChina
                     case 2:
                         return 2;
                 }
+=======
+                UserInterface.PrintAddMenu(); //cabecera de la suma
+
+
+  
+>>>>>>> Stashed changes
             }
 
         }
